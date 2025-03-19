@@ -6,11 +6,11 @@
         </div>
 
         <div class="row">
-            <div class="col-lg-4 bg-warning" style="height: 100vh;">
+            <div class="col-lg-3" style="height: 100vh;background-color: #8d99ae;">
                 <SideNavbar></SideNavbar>
             </div>
 
-            <div class="col-lg-8">
+            <div class="col-lg-9" id="pages-main">
                 <router-view/>
             </div>
 
@@ -20,8 +20,8 @@
 </template>
 
 <script>
-import Header from '../../components/Header.vue';
-import SideNavbar from '../../components/SideNavbar.vue';
+import Header from './components/header/Header.vue';
+import SideNavbar from './components/side-bar/SideNavbar.vue';
 export default {
     name: 'Layout',
 
@@ -31,3 +31,9 @@ export default {
     }
 }
 </script>
+
+<style>
+#pages-main{
+    background-color: #edf2f4;
+}
+</style>

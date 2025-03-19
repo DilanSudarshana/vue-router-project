@@ -1,10 +1,13 @@
 <template>
     <div>
-        SideNavbar
+        Report page
     </div>
 </template>
 <script>
 export default {
-    name:'SideNavbar'
+    name:'Report',
 }
 </script>
+<style>
+    
+</style>
