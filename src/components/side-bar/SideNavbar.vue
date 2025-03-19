@@ -5,6 +5,7 @@
 </template>
 <script>
 import NavButton from './components/NavButton.vue';
+import router from '../../route.js'
 
 export default {
     name: 'SideNavbar',
@@ -15,16 +16,22 @@ export default {
 
     data() {
         return {
-            
-            routes: [
-                { name: 'Home', path: '/' },
-                { name: 'Attendace', path: '/attendance' },
-                { name: 'Create Employee', path: '/create-employee' },
-                { name: 'Add Employee Type', path: '/employee-type' },
-                { name: 'Report', path: '/report' },
-            ]
-        }
+            routes: [],
+        };
     },
+
+    methods: {
+        getRoutesNames() {
+            this.routes = router.getRoutes();
+            console.log(this.routes)
+        }
+
+    },
+
+    mounted() {
+        this.getRoutesNames();
+    },
+
 
 }
 </script>

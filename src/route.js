@@ -3,7 +3,6 @@ import CreateEmployee from "./pages/create-employee/CreateEmployee.vue"
 import Attendance from './pages/attendance-page/Attendance.vue'
 import Report from './pages/report-page/Report.vue'
 import EmployeeType from "./pages/employee-type-page/EmployeeType.vue";
-import NotFound from './pages/not-found-page/NotFound.vue'
 
 import {
     createRouter,
@@ -36,11 +35,6 @@ const routes = [{
         path: "/employee-type",
         name: "EmployeeType",
     },
-    {
-        path: '/: NotFound(.*)*',
-        component: NotFound
-    },
-
 
 ];
 const router = createRouter({
@@ -48,4 +42,4 @@ const router = createRouter({
     routes: routes,
 })
 
-export default router
+export default router;
