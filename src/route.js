@@ -17,7 +17,7 @@ const routes = [{
     {
         component: CreateEmployee,
         path: "/create-employee",
-        name: "CreateEmployee",
+        name: "Create Employee",
     },
     {
         component: Attendance,
@@ -33,7 +33,7 @@ const routes = [{
     {
         component: EmployeeType,
         path: "/employee-type",
-        name: "EmployeeType",
+        name: "Employee Type",
     },
 
 ];

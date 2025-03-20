@@ -4,12 +4,6 @@
             <div>
                 <span class="fw-bold">Employee Managemets stystem</span>
             </div>
-
-            <div class="d-none d-md-block">
-                <input style="height: 30px;margin-top: 2px;background-color: #f0f0f0;width: 50vh;" type="text"
-                    class="form-control rounded-pill" placeholder="Search Employee Here"
-                    aria-label="Recipient's username" aria-describedby="basic-addon2">
-            </div>
         </div>
     </div>
 </template>
