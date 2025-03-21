@@ -40,15 +40,18 @@
                     <p class="text-muted fs-6 ms-1">Gender</p>
                     <div class="d-flex justify-content-between">
                         <div class="d-flex justify-content-start align-items-center">
-                            <input v-model="gender" type="radio" id="female" name="gender" value="female" class="form-check-input" />
+                            <input v-model="gender" type="radio" id="female" name="gender" value="female"
+                                class="form-check-input" />
                             <label for="female" class="form-check-label ms-2">Female</label>
                         </div>
                         <div class="d-flex justify-content-start align-items-center">
-                            <input v-model="gender" type="radio" id="male" name="gender" value="male" class="form-check-input" />
+                            <input v-model="gender" type="radio" id="male" name="gender" value="male"
+                                class="form-check-input" />
                             <label for="male" class="form-check-label ms-2">Male</label>
                         </div>
                         <div class="d-flex justify-content-start align-items-center">
-                            <input v-model="gender" type="radio" id="custom" name="gender" value="custom" class="form-check-input" />
+                            <input v-model="gender" type="radio" id="custom" name="gender" value="custom"
+                                class="form-check-input" />
                             <label for="custom" class="form-check-label ms-2">Custom</label>
                         </div>
                     </div>
@@ -78,9 +81,8 @@
                 </div>
                 <div class="col-lg-6 col-md-6 mb-1">
                     <select v-model="employee_type" class="form-control">
-                        <option>Choose Employee Type</option>
-                        <option >Full Time</option>
-                        <option>Part Time</option>
+                        <option value="">Select Employee Type</option>
+                        <option :value="type.id" v-for="type in employeeType" :key="type.id">{{ type.type_name }}</option>
                     </select>
                 </div>
 
@@ -89,7 +91,8 @@
             <div class="row pb-2">
                 <div class="col-lg-6 col-md-6">
                     <div class="d-flex justify-content-center align-items-center">
-                        <textarea v-model="description" class="form-control" id="exampleFormControlTextarea1" rows="6"></textarea>
+                        <textarea v-model="description" class="form-control" id="exampleFormControlTextarea1"
+                            rows="6"></textarea>
                     </div>
                 </div>
             </div>
@@ -128,13 +131,15 @@ export default {
             phone_number: '',
             employee_type: '',
             description: '',
+            employeeType: [],
         };
     },
 
     methods: {
 
         async createNewUser() {
-            let result = await axios.post('http://localhost/employee/user', {
+
+            let result = await axios.post('http://localhost/company/user', {
                 first_name: this.first_name,
                 last_name: this.last_name,
                 dob: this.dob,
@@ -155,17 +160,27 @@ export default {
             if (result.status == 200) {
                 console.log('data inserted')
 
-                // this.first_name = ""
-                // this.last_name = ""
-                // this.dob = ""
-                // this.gender = ""
-                // this.email = ""
-                // this.address = ""
-                // this.phone_number = ""
-                // this.employee_type = ""
+                this.first_name = ""
+                this.last_name = ""
+                this.dob = ""
+                this.gender = ""
+                this.email = ""
+                this.address = ""
+                this.phone_number = ""
+                this.employee_type = ""
             }
-        }
+        },
+
+        async getEmployeeType() {
+            let result = await axios.get('http://localhost/company/type');
+            this.employeeType = result.data;
+            console.log(result.data);
+        },
     },
+
+    mounted() {
+        this.getEmployeeType();
+    }
 
 
 }

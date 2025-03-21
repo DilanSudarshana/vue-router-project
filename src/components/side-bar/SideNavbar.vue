@@ -22,7 +22,7 @@ export default {
 
     methods: {
         getRoutesNames() {
-            this.routes = router.getRoutes();
+            this.routes = router.getRoutes()
         }
 
     },

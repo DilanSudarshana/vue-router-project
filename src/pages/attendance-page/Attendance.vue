@@ -15,7 +15,11 @@
 
             <div class="row pb-2 mt-4">
                 <div class="col-lg-12 col-md-12 mb-1">
-                    <SearchBar Text="Search Employee Here"></SearchBar>
+                    <select class="form-control">
+                        <option>Select Employee Here</option>
+                        <option></option>
+                        <option></option>
+                    </select>
                 </div>
             </div>
 
@@ -54,7 +58,7 @@ export default {
 
     data() {
         return {
-            
+
         };
     },
 }
