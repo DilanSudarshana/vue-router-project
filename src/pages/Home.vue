@@ -33,8 +33,10 @@
                         </td>
                         <td>
                             <div class="d-flex">
-                                <button class="btn btn-warning me-2">Update</button>
-                                <button @click="deleteUser(user.id)"  class="btn btn-danger">Delete</button>
+                                <router-link :to="'/' + user.id">
+                                    <button class="btn btn-warning me-2">Update</button>
+                                </router-link>
+                                <button @click="deleteUser(user.id)" class="btn btn-danger">Delete</button>
                             </div>
                         </td>
                     </tr>

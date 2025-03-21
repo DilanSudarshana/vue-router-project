@@ -3,6 +3,7 @@ import CreateEmployee from "./pages/create-employee/CreateEmployee.vue"
 import Attendance from './pages/attendance-page/Attendance.vue'
 import Report from './pages/report-page/Report.vue'
 import EmployeeType from "./pages/employee-type-page/EmployeeType.vue";
+import UpdateEmployee from "./pages/update-employee-page/UpdateEmployee.vue";
 
 import {
     createRouter,
@@ -13,6 +14,11 @@ const routes = [{
         component: Home,
         path: "/",
         name: "Home",
+    },
+    {
+        component: UpdateEmployee,
+        path: "/:id",
+        name: "Update Employee",
     },
     {
         component: CreateEmployee,
