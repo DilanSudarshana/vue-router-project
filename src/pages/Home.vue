@@ -27,12 +27,14 @@
                         <td>{{ user.last_name }}</td>
                         <td>{{ user.phone_number }}</td>
                         <td>{{ user.type_name }}</td>
-                        <td><p v-if="user.is_active==1">Active</p>
-                            <p v-else>Deactivated</p></td>
+                        <td>
+                            <p v-if="user.is_active == 1">Active</p>
+                            <p v-else>Deactivated</p>
+                        </td>
                         <td>
                             <div class="d-flex">
                                 <button class="btn btn-warning me-2">Update</button>
-                                <button class="btn btn-danger">Delete</button>
+                                <button @click="deleteUser(user.id)"  class="btn btn-danger">Delete</button>
                             </div>
                         </td>
                     </tr>
@@ -55,9 +57,26 @@ export default {
     },
 
     methods: {
+
         async getAllUsers() {
             let result = await axios.get('http://localhost/company/user');
             this.users = result.data;
+        },
+
+        async deleteUser(id) {
+            axios.delete(`http://localhost/company/user/delete/${id}`, {
+                withCredentials: false,
+                headers: {
+                    "Content-Type": "application/json",
+                    Accept: "application/json",
+                },
+            })
+                .then(response => {
+                    console.log(`Deleted post with ID ${id}`);
+                })
+                .catch(error => {
+                    console.error(error);
+                });
         }
     },
 
