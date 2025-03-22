@@ -15,6 +15,7 @@
 
             <div class="row pb-2 mt-4">
                 <div class="col-lg-12 col-md-12 mb-1">
+                    <h6 class="mt-2 mb-3">Select Name<span class="text-danger">*</span></h6>
                     <select v-model="user_id" class="form-control" @change="getAttendenceDetails(user_id)">
                         <option value="">Select User</option>
                         <option v-for="user in users" :key="user.id" :value="user.id">
@@ -26,17 +27,18 @@
 
             <div class="row pb-2 mt-4">
                 <div class="col-lg-6 col-md-6 mb-1">
-                    <p class="text-muted fs-6 ms-1">Date</p>
+                    <h6 class="mt-2 mb-3">Date<span class="text-danger">*</span></h6>
                     <input type="date" class="form-control" id="currentDate" />
                 </div>
                 <div class="col-lg-6 col-md-6 mb-1">
-                    <p class="text-muted fs-6 ms-1">Time</p>
+                    <h6 class="mt-2 mb-3">Time<span class="text-danger">*</span></h6>
                     <input type="time" class="form-control" id="currentTime" />
                 </div>
             </div>
 
             <div class="row pb-2 mt-4">
                 <div class="col-lg-12 col-md-12 mb-1">
+                    <h6 class="mt-2 mb-3">Attendace Details<span class="text-danger">*</span></h6>
                     <div class="card">
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item">Date: {{ attendaceDetails.mark_date }}</li>
@@ -50,9 +52,11 @@
 
 
             <div class="row pb-2 mt-5">
+                <h6 class="mt-2 mb-3">Mark Attendace Here <span class="text-danger">*</span></h6>
                 <MainButton v-on:click="makeCheckIn" buttonText="Check In">
                 </MainButton>
-                <MainButton v-on:click="makeCheckOut(attendaceDetails.user_id)" buttonText="Check Out" :status="attendaceDetails.attendace_status == 1 ? true : false">
+                <MainButton v-on:click="makeCheckOut(attendaceDetails.user_id)" buttonText="Check Out"
+                    :status="attendaceDetails.attendace_status == 1 ? true : false">
                 </MainButton>
             </div>
 
