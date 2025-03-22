@@ -1,7 +1,7 @@
 <template>
     <div class="col-lg-6 col-md-6">
         <div class="d-flex justify-content-between align-items-center">
-            <button class="btn btn-primary btn-block w-100">
+            <button class="btn btn-primary btn-block w-100" :disabled="!status">
                 <h6 class="text-light fw-bold">{{ buttonText }}</h6>
             </button>
         </div>
@@ -16,6 +16,10 @@ export default {
         buttonText: {
             type: String,
             default:()=>"Button",
+        },
+        status:{
+            type: Boolean,
+            default: () => true,
         }
     }
 

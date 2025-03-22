@@ -28,8 +28,8 @@
                         <td>{{ user.phone_number }}</td>
                         <td>{{ user.type_name }}</td>
                         <td>
-                            <p v-if="user.is_active == 1">Active</p>
-                            <p v-else>Deactivated</p>
+                            <span v-if="user.is_active == 1" class="badge bg-success">Active</span>
+                            <span v-else class="badge bg-danger">Deactivated</span>
                         </td>
                         <td>
                             <div class="d-flex">
@@ -74,7 +74,7 @@ export default {
                 },
             })
                 .then(response => {
-                    console.log(`Deleted post with ID ${id}`);
+                    console.log(`Deleted user with ID ${id}`);
                 })
                 .catch(error => {
                     console.error(error);

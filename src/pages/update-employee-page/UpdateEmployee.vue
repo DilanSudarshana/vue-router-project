@@ -99,7 +99,7 @@
 
 
             <div class="row pb-2 mt-5">
-                <MainButton v-on:click="updateUser" buttonText="Create Employee"></MainButton>
+                <MainButton v-on:click="updateUser" buttonText="Update Employee"></MainButton>
             </div>
 
         </div>
@@ -134,7 +134,6 @@ export default {
             employee_type: '',
             description: '',
             employeeType: [],
-            employeeData:[],
         };
     },
 
@@ -153,24 +152,14 @@ export default {
                 employee_type: this.employee_type,
                 description: this.description,
 
-
             }, {
                 headers: {
-                    'Content-Type': 'multipart/form-data'
+                    'Content-Type': 'application/json'
                 }
             }
             )
             if (result.status == 200) {
-                console.log('data inserted')
-
-                this.first_name = ""
-                this.last_name = ""
-                this.dob = ""
-                this.gender = ""
-                this.email = ""
-                this.address = ""
-                this.phone_number = ""
-                this.employee_type = ""
+                console.log('data updated successfull')
             }
         },
 
