@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12">
                     <div class="d-flex justify-content-start align-items-start">
-                        <h5 class="text-center fw-bold">Add new employee type</h5>
+                        <h5 class="text-center fw-bold"><i class="bi bi-folder-plus"></i> Add new employee type</h5>
                     </div>
                 </div>
             </div>
@@ -56,18 +56,22 @@ export default {
     methods: {
 
         async addNewType() {
-            let result = await axios.post('http://localhost/company/type', {
-                type_name: this.type_name,
-                description: this.description,
+            if (this.type_name == '' || this.description == '') {
+                alert('Please fill all fields')
+            } else {
+                let result = await axios.post('http://localhost/company/type', {
+                    type_name: this.type_name,
+                    description: this.description,
 
-            }, {
-                headers: {
-                    'Content-Type': 'multipart/form-data'
+                }, {
+                    headers: {
+                        'Content-Type': 'multipart/form-data'
+                    }
                 }
-            }
-            )
-            if (result.status == 200) {
-                this.$router.push('/create-employee')
+                )
+                if (result.status == 200) {
+                    this.$router.push('/')
+                }
             }
         }
     },

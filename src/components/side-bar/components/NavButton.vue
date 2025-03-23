@@ -20,4 +20,11 @@ export default {
 #nav-button {
     background-color: #2b2d42;
 }
+#nav-button {
+    transition: background-color 0.3s ease-in-out;
+}
+
+#nav-button:hover {
+    background-color: #3e4160;
+}
 </style>

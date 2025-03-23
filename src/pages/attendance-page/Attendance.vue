@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12">
                     <div class="d-flex justify-content-start align-items-start">
-                        <h5 class="text-center fw-bold">Mark Attendance</h5>
+                        <h5 class="text-center fw-bold"><i class="bi bi-card-checklist"></i> Mark Attendance</h5>
                     </div>
                 </div>
             </div>

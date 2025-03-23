@@ -7,7 +7,7 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12">
                     <div class="d-flex justify-content-start align-items-start">
-                        <h5 class="text-center fw-bold">Update Employee</h5>
+                        <h5 class="text-center fw-bold"><i class="bi bi-pencil-square"></i> Update Employee</h5>
                     </div>
                 </div>
             </div>
@@ -160,6 +160,7 @@ export default {
             )
             if (result.status == 200) {
                 console.log('data updated successfull')
+                this.$router.push('/')
             }
         },
 

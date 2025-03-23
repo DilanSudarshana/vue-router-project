@@ -16,6 +16,11 @@ const routes = [{
         name: "Home",
     },
     {
+        component: EmployeeType,
+        path: "/employee-type",
+        name: "Add NewEmployee Type",
+    },
+    {
         component: UpdateEmployee,
         path: "/:id",
         name: "Update Employee",
@@ -36,11 +41,7 @@ const routes = [{
         path: "/report",
         name: "Report",
     },
-    {
-        component: EmployeeType,
-        path: "/employee-type",
-        name: "Employee Type",
-    },
+
 
 ];
 const router = createRouter({
