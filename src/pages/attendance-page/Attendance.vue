@@ -41,9 +41,12 @@
                     <h6 class="mt-2 mb-3">Attendace Details<span class="text-danger">*</span></h6>
                     <div class="card">
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item">Date: {{ attendaceDetails.mark_date }}</li>
-                            <li class="list-group-item">Check In: {{ attendaceDetails.check_in }}</li>
-                            <li class="list-group-item">Check Out: {{ attendaceDetails.check_out ?
+                            <li class="list-group-item"><i class="bi bi-calendar2-check-fill text-warning"></i> Attendace Date: {{
+                                attendaceDetails.mark_date }}</li>
+                            <li class="list-group-item"><i class="bi bi-lightbulb-fill text-success"></i> Check In: {{
+                                attendaceDetails.check_in }}</li>
+                            <li class="list-group-item"><i class="bi bi-lightbulb-fill text-danger"></i> Check Out: {{
+                                attendaceDetails.check_out ?
                                 attendaceDetails.check_out : 'Not Checked Out Yet' }}</li>
                         </ul>
                     </div>
@@ -55,7 +58,7 @@
                 <h6 class="mt-2 mb-3">Mark Attendace Here <span class="text-danger">*</span></h6>
                 <MainButton v-on:click="makeCheckIn" buttonText="Check In">
                 </MainButton>
-                <MainButton v-on:click="makeCheckOut(attendaceDetails.user_id)" buttonText="Check Out"
+                <MainButton v-on:click="makeCheckOut(attendaceDetails.user_id)" buttonText="Check Out" color="#ed3b05"
                     :status="attendaceDetails.attendace_status == 1 ? true : false">
                 </MainButton>
             </div>
@@ -111,6 +114,7 @@ export default {
             )
             if (result.data.status == true) {
                 alert(result.data.message)
+                window.location.reload();
             } else {
                 alert(result.data.message)
             }
@@ -139,10 +143,11 @@ export default {
 
             // console.log($id)
             let result = await axios.put(`http://localhost/company/attendance/update/${$id}`)
-           
-            if(result.data.status==true){
+
+            if (result.data.status == true) {
                 alert(result.data.message)
-            }else{
+                window.location.reload();
+            } else {
                 alert(result.data.message)
             }
         }

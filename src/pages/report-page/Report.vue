@@ -41,11 +41,11 @@
             </div>
 
             <div class="row pb-2 mt-3">
-                <MainButton buttonText="Filter Data" class="w-100" v-on:click="filterAttendanceData">
+                <MainButton buttonText="Filter Data" color="#FFC300" class="w-100" v-on:click="filterAttendanceData">
                 </MainButton>
             </div>
 
-            <div  class="row pb-2">
+            <div class="row pb-2">
                 <div id="main-right" class="d-flex justify-content-center align-item-center mt-4 m-2 overflow-auto">
 
                     <table class="table w-100">
@@ -143,7 +143,7 @@ export default {
                     alert('No data found')
                 }
 
-            }else{
+            } else {
                 alert('You have to fill all the fields')
             }
         }
@@ -163,6 +163,7 @@ export default {
     height: 90vh;
     overflow-y: scroll;
 }
+
 #report-page::-webkit-scrollbar {
     width: 5px;
     height: 8px;
