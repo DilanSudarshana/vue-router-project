@@ -1,6 +1,6 @@
 <template>
 
-    <div class="bg-light p-2 m-3 rounded h-100">
+    <div class="bg-light p-2 m-3" style="height: 90vh;">
 
         <div class="container">
 

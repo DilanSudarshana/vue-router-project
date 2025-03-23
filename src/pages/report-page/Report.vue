@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-light p-2 m-3 rounded h-100">
+    <div id="report-page" class="bg-light p-2 m-3 rounded">
 
         <div class="container">
 
@@ -159,23 +159,27 @@ export default {
 </script>
 
 <style>
-#main-right::-webkit-scrollbar {
+#report-page {
+    height: 90vh;
+    overflow-y: scroll;
+}
+#report-page::-webkit-scrollbar {
     width: 5px;
     height: 8px;
 }
 
-#main-right::-webkit-scrollbar-track {
+#report-page::-webkit-scrollbar-track {
     background: transparent;
     border-radius: 99px;
 }
 
-#main-right::-webkit-scrollbar-thumb {
+#report-page::-webkit-scrollbar-thumb {
     background: transparent;
     border-radius: 99px;
     transition: background 0.3s ease-in-out;
 }
 
-#main-right:hover::-webkit-scrollbar-thumb {
+#report-page::-webkit-scrollbar-thumb {
     background: rgba(0, 0, 0, 0.1);
 }
 </style>

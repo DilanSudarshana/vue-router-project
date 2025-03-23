@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-light p-2 m-3 rounded h-100">
+    <div id="home-page" class="bg-light p-2 m-3 rounded">
 
         <div class="container">
 
@@ -44,9 +44,11 @@
                             <td>
                                 <div class="d-flex">
                                     <router-link :to="'/' + user.id">
-                                        <button class="btn btn-warning me-2 text-white"><i class="bi bi-pencil-square"></i></button>
+                                        <button class="btn btn-warning me-2 text-white"><i
+                                                class="bi bi-pencil-square"></i></button>
                                     </router-link>
-                                    <button @click="deleteUser(user.id)" class="btn btn-danger"><i class="bi bi-trash-fill"></i></button>
+                                    <button @click="deleteUser(user.id)" class="btn btn-danger"><i
+                                            class="bi bi-trash-fill"></i></button>
                                 </div>
                             </td>
                         </tr>
@@ -103,3 +105,29 @@ export default {
     }
 }
 </script>
+
+<style>
+#home-page {
+    height: 90vh;
+    overflow-y: scroll;
+}
+#home-page::-webkit-scrollbar {
+    width: 5px;
+    height: 8px;
+}
+
+#home-page::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 99px;
+}
+
+#home-page::-webkit-scrollbar-thumb {
+    background: transparent;
+    border-radius: 99px;
+    transition: background 0.3s ease-in-out;
+}
+
+#home-page::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.1);
+}
+</style>
