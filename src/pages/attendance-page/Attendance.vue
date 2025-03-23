@@ -149,14 +149,19 @@ export default {
         async makeCheckOut($id) {
 
             // console.log($id)
-            let result = await axios.put(`http://localhost/company/attendance/update/${$id}`)
+            if ($id) {
+                let result = await axios.put(`http://localhost/company/attendance/update/${$id}`)
 
-            if (result.data.status == true) {
-                alert(result.data.message)
-                window.location.reload();
+                if (result.data.status == true) {
+                    alert(result.data.message)
+                    window.location.reload();
+                } else {
+                    alert(result.data.message)
+                }
             } else {
-                alert(result.data.message)
+                alert('Please select a user')
             }
+
         }
     },
 
