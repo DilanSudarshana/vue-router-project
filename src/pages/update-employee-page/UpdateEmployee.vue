@@ -176,6 +176,7 @@ export default {
             this.gender = result.data.gender;
             this.email = result.data.email;
             this.address = result.data.address;
+            this.dob = result.data.dob;
             this.phone_number = result.data.phone_number;
             this.employee_type = result.data.employee_type;
             this.description = result.data.description;
