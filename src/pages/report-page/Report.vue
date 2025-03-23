@@ -41,7 +41,7 @@
             </div>
 
             <div class="row pb-2 mt-3">
-                <MainButton buttonText="Filter Data" color="#FFC300" class="w-100" v-on:click="filterAttendanceData">
+                <MainButton buttonText="Filter Data" color="#FF5733" class="w-100" v-on:click="filterAttendanceData">
                 </MainButton>
             </div>
 

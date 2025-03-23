@@ -21,14 +21,14 @@
                 </div>
                 <div class="col-lg-6 col-md-6 mb-1">
                     <div class="d-flex justify-content-center align-items-center">
-                        <textarea v-model="description" class="form-control" id="exampleFormControlTextarea1" rows="6"
+                        <textarea v-model="description" class="form-control" id="exampleFormControlTextarea1" rows="2"
                             placeholder="Enter Description"></textarea>
                     </div>
                 </div>
             </div>
 
-            <div class="row pb-2 mt-5">
-                <MainButton @click="addNewType" class="w-100" buttonText="Create Employee Type"></MainButton>
+            <div class="row pb-2 mt-3 d-flex justify-content-end align-items-end">
+                <MainButton @click="addNewType" class="w-50" buttonText="Create Employee Type"></MainButton>
             </div>
         </div>
 

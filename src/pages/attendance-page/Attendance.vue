@@ -41,13 +41,14 @@
                     <h6 class="mt-2 mb-3">Attendace Details<span class="text-danger">*</span></h6>
                     <div class="card">
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item"><i class="bi bi-calendar2-check-fill text-warning"></i> Attendace Date: {{
-                                attendaceDetails.mark_date }}</li>
+                            <li class="list-group-item"><i class="bi bi-calendar2-check-fill text-warning"></i>
+                                Attendace Date: {{
+                                    attendaceDetails.mark_date }}</li>
                             <li class="list-group-item"><i class="bi bi-lightbulb-fill text-success"></i> Check In: {{
                                 attendaceDetails.check_in }}</li>
                             <li class="list-group-item"><i class="bi bi-lightbulb-fill text-danger"></i> Check Out: {{
                                 attendaceDetails.check_out ?
-                                attendaceDetails.check_out : 'Not Checked Out Yet' }}</li>
+                                    attendaceDetails.check_out : 'Not Checked Out Yet' }}</li>
                         </ul>
                     </div>
                 </div>
@@ -104,20 +105,26 @@ export default {
 
         //make check in based on user id
         async makeCheckIn() {
-            let result = await axios.post('http://localhost/company/attendance', {
-                user_id: this.user_id,
-            }, {
-                headers: {
-                    'Content-Type': 'multipart/form-data'
+            const user_id = this.user_id
+            if (user_id) {
+                let result = await axios.post('http://localhost/company/attendance', {
+                    user_id: this.user_id,
+                }, {
+                    headers: {
+                        'Content-Type': 'multipart/form-data'
+                    }
                 }
-            }
-            )
-            if (result.data.status == true) {
-                alert(result.data.message)
-                window.location.reload();
+                )
+                if (result.data.status == true) {
+                    alert(result.data.message)
+                    window.location.reload();
+                } else {
+                    alert(result.data.message)
+                }
             } else {
-                alert(result.data.message)
+                alert('Please select a user')
             }
+
         },
 
         //get user attendance based on user id and current date
