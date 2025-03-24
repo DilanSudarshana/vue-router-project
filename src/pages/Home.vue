@@ -17,6 +17,30 @@
             <hr class="mt-0">
 
             <div class="row p-3">
+                <div class="col-lg-12 d-flex justify-content-between align-items-center">
+
+                    <div class="card text-white" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">Total Employees</h5>
+                        </div>
+                    </div>
+
+                    <div class="card text-white" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">Total Categories</h5>
+                        </div>
+                    </div>
+
+                    <div class="card text-white" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">Top Employer</h5>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="row p-3">
                 <table class="table w-100">
                     <thead>
                         <tr>
@@ -111,6 +135,7 @@ export default {
     height: 90vh;
     overflow-y: scroll;
 }
+
 #home-page::-webkit-scrollbar {
     width: 5px;
     height: 8px;
@@ -129,5 +154,9 @@ export default {
 
 #home-page::-webkit-scrollbar-thumb {
     background: rgba(0, 0, 0, 0.1);
+}
+
+.card {
+    background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 }
 </style>
