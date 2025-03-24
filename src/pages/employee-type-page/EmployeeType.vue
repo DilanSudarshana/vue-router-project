@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-light p-2 m-3 rounded" style="height: 90vh;">
+    <div class="bg-light p-2 m-3 rounded" style="height: 90vh;overflow-y: scroll;">
 
         <div class="container">
 
@@ -30,6 +30,37 @@
             <div class="row pb-2 mt-3 d-flex justify-content-end align-items-end">
                 <MainButton @click="addNewType" class="w-50" buttonText="Create Employee Type"></MainButton>
             </div>
+
+            <div class="row p-3">
+                <table class="table w-100">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr v-for="catogory in emp_categories" :key="catogory.id">
+                            <td>#EID-{{ catogory.id }}</td>
+                            <td>{{ catogory.type_name }}</td>
+                            <td>{{ catogory.description }}</td>
+                            <td>
+                                <div class="d-flex">
+
+                                    <button class="btn btn-warning me-2 text-white"><i
+                                            class="bi bi-pencil-square"></i></button>
+
+                                    <button class="btn btn-danger"><i class="bi bi-trash-fill"></i></button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
         </div>
 
     </div>
@@ -50,6 +81,7 @@ export default {
         return {
             type_name: '',
             description: '',
+            emp_categories: [],
         }
     },
 
@@ -73,8 +105,16 @@ export default {
                     this.$router.push('/')
                 }
             }
+        },
+
+        async getAllCategories() {
+            let result = await axios.get('http://localhost/company/type');
+            this.emp_categories = result.data;
         }
     },
+    mounted() {
+        this.getAllCategories();
+    }
 
 }
 </script>
