@@ -61,18 +61,28 @@
                         </thead>
 
                         <tbody>
-                            <tr v-for="attendance in attendaceDetails" :key="attendance.id">
+
+                            <tr v-if="attendaceDetails != null" v-for="attendance in attendaceDetails"
+                                :key="attendance.id">
                                 <td>#AID- {{ attendance.id }}</td>
                                 <td>{{ attendance.mark_date }}</td>
                                 <td>{{ attendance.first_name }} {{ attendance.last_name }}</td>
                                 <td>{{ attendance.check_in }}</td>
-                                <td>{{ attendance.check_out }}</td>
+                                <td><span v-if="attendance.check_out == null">Not Check Out Yet</span>
+                                    <span v-else>{{ attendance.check_out }}</span>
+                                </td>
                                 <td class="text-center">
                                     <span v-if="attendance.attendace_status == 1"
                                         class="badge bg-success">Avalabale</span>
                                     <span v-else class="badge bg-danger">Not Available</span>
                                 </td>
                             </tr>
+                            <tr v-else>
+                                <div class="text-center text-danger">
+                                    <h5>No data Found</h5>
+                                </div>
+                            </tr>
+
                         </tbody>
                     </table>
                 </div>
@@ -122,7 +132,7 @@ export default {
         //get summary about user
         async filterAttendanceData() {
 
-            if (this.user_id && this.start_date && this.end_date) {
+            if (this.start_date && this.end_date) {
                 let result = await axios.get('http://localhost/company/summary/filter', {
                     params: {
                         user_id: this.user_id,
@@ -140,7 +150,7 @@ export default {
                 if (result.data.status === true) {
                     this.attendaceDetails = result.data.data;
                 } else {
-                    alert('No data found')
+                    this.attendaceDetails = result.data.data;
                 }
 
             } else {

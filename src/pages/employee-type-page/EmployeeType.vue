@@ -49,13 +49,15 @@
                             <td>{{ catogory.description }}</td>
                             <td>
                                 <div class="d-flex">
+                                    <router-link :to="'/employee-update/' + catogory.id">
+                                        <button class="btn btn-warning me-2 text-white"><i
+                                                class="bi bi-pencil-square"></i></button></router-link>
 
-                                    <button class="btn btn-warning me-2 text-white"><i
-                                            class="bi bi-pencil-square"></i></button>
-
-                                    <button class="btn btn-danger"><i class="bi bi-trash-fill"></i></button>
+                                    <button @click="deleteCategory(catogory.id)" class="btn btn-danger"><i
+                                            class="bi bi-trash-fill"></i></button>
                                 </div>
                             </td>
+
                         </tr>
                     </tbody>
                 </table>
@@ -64,6 +66,9 @@
         </div>
 
     </div>
+
+
+
 
 </template>
 <script>
@@ -110,6 +115,23 @@ export default {
         async getAllCategories() {
             let result = await axios.get('http://localhost/company/type');
             this.emp_categories = result.data;
+        },
+
+        async deleteCategory(id) {
+            axios.delete(`http://localhost/company/type/delete/${id}`, {
+                withCredentials: false,
+                headers: {
+                    "Content-Type": "application/json",
+                    Accept: "application/json",
+                },
+            })
+                .then(response => {
+                    alert(`Deleted employee type with ID ${id}`);
+                    window.location.reload();
+                })
+                .catch(error => {
+                    console.error(error);
+                });
         }
     },
     mounted() {
@@ -118,4 +140,5 @@ export default {
 
 }
 </script>
+
 <style></style>

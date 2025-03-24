@@ -4,6 +4,7 @@ import Attendance from './pages/attendance-page/Attendance.vue'
 import Report from './pages/report-page/Report.vue'
 import EmployeeType from "./pages/employee-type-page/EmployeeType.vue";
 import UpdateEmployee from "./pages/update-employee-page/UpdateEmployee.vue";
+import UpdateEmptype from "./pages/update-emptype-page/UpdateEmptype.vue";
 
 import {
     createRouter,
@@ -40,6 +41,11 @@ const routes = [{
         component: Report,
         path: "/report",
         name: "Report",
+    },
+    {
+        component: UpdateEmptype,
+        path: "/employee-update/:id",
+        name: "Update Employee Category",
     },
 
 
